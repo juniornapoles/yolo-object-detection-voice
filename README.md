@@ -1,35 +1,73 @@
-# Treinando YoloV8
-Fazendo um treinamento da YoloV8
+#  YOLO Object Detection with Voice Feedback
 
-## Treinando
-### Instalando pytorch com CUDA para uso da GPU
-Se você tem uma placa de vídeo compatível com CUDA, primeiro instale o PyTorch com CUDA neste link
+> Sistema de detecção de objetos utilizando YOLO com feedback por voz em tempo real.
 
-[https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/)
+---
 
-### Instale o Yolo
-```
-pip install ultralitics
-```
+## 📌 Sobre o projeto
 
-### Treinamento
-Para treinar, acompanhe o vídeo e use o arquivo "train_among_v8.py"
+Este projeto utiliza técnicas de Inteligência Artificial e Visão Computacional para detectar objetos em imagens e fornecer feedback por voz com base nos objetos identificados.
 
-## Testando
-Para testar, se quiser fazer o rastreio coloque a variavel "seguir" em True
-Para desenhar o rastreio coloque a variavel "deixar_rastro" em True
+A aplicação detecta objetos e informa sua posição na tela (ex: "bottom left cat"), podendo ser utilizada principalmente para acessibilidade e navegação assistida.
 
-### Testando com WebCam
-Para testar com WebCam use o arquivo "detectar_usando_webcam.py"
+---
 
-### Testando Capturando Tela
-Para testar capturando a tela use o arquivo "detectar_capturando_tela.py"
+##  Funcionalidades
 
-Neste caso configure o tamanho da tela no campo "size" da wincap e ajuste o offset do ponto inicial que quer capturar
+- Detecção de objetos com YOLO
+- Uso de modelo pré-treinado (COCO dataset)
+- Identificação da posição do objeto na tela (esquerda, centro, direita / cima, meio, baixo)
+- Conversão de texto para voz (Text-to-Speech)
+- Suporte para imagens
 
-Também é possível capturar passando o nome da janela que deseja usar (porém nem sempre funciona)
+---
+
+##  Tecnologias utilizadas
+
+- Python
+- OpenCV (cv2)
+- YOLO (You Only Look Once)
+- gTTS (Google Text-to-Speech)
+- NumPy
+
+---
+
+##  Como funciona
+
+1. A imagem é enviada para o modelo YOLO
+2. O modelo detecta objetos e gera bounding boxes
+3. O sistema calcula a posição do objeto na tela
+4. A descrição é convertida em texto
+5. O texto é transformado em áudio (voz)
+
+Exemplo de saída:
 
 
-Valeuuu
+bottom left cat
 
-[!["Treinando Redes Neurais Com Imagens Próprias"](https://img.youtube.com/vi/KV5lszcKuiE/0.jpg)](https://www.youtube.com/watch?v=KV5lszcKuiE)
+
+---
+
+## ⚙️ Como rodar o projeto
+
+```bash
+# Clonar o repositório
+git clone https://github.com/juniornapoles/yolo-object-detection-voice.git
+
+# Entrar na pasta do projeto
+cd yolo-object-detection-voice
+
+# Instalar dependências
+pip install -r requirements.txt
+
+# Rodar o projeto
+python script.py -i caminho/da/imagem.jpg -y caminho/do/yolo
+📂 Estrutura do projeto
+yolo-object-detection-voice
+│
+├── script.py
+├── yolo/
+├── images/
+├── object_detection.mp3
+├── requirements.txt
+└── README.md
